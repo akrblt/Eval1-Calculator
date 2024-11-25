@@ -1,6 +1,7 @@
 operand1 = None
 operator = None
 operand2 = None
+puissance=None
 
 def main():
     ask_user_input()
@@ -15,7 +16,7 @@ def ask_user_input():
 
     global operator
     # Get the operator from the user
-    operator = input("Enter an operator (+, -, *, /): ")
+    operator = input("Enter an operator (+, -, *, /,**): ")
 
     global operand2
     # Get second operand from the user
@@ -38,13 +39,26 @@ def calculate(ope1, oper, ope2):
                 print("Error: Division by zero is undefined.")
                 return
             res = ope1 / ope2
+        case '**':
+            puissance =int(input("Enter the puissance"))
+
+            def maFonction(puissance):
+                somme = 1
+                for count in range(int(puissance)):
+                    somme = somme * 2
+                return somme
+
+
+
+                print(somme)
+
         case _:
             print("Invalid operator.")
             return
     return res
 
-def display_result(op1, ope, ope2, res):
-    print(str(op1) + " " + ope + " " + str(ope2) + " = " + str(res))
+def display_result(op1, ope, ope2, res , puissance):
+    print(str(op1) + " " + ope + " " + str(ope2) + " = " + str(res)+ " = " + str(puissance))
 
 # Call the main function to run the program
 main()
