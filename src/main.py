@@ -1,64 +1,62 @@
-operand1 = None
-operator = None
-operand2 = None
-puissance=None
+class Calculator:
+    def __int__(self):
+        self.operand1=None
+        self.operand2=None
+        self.operator=None
+
+
+
+
+
+
+
+    def ask_user_input(self):
+    # Get first operand
+        self.operand1 = self.ask_user_float_input("Enter the first operand: ")
+
+    # Get operator
+        self.operator = input("Enter an operator (+, -, *, /, **): ")
+
+    # Get second operand
+        self.operand2 = self.ask_user_float_input("Enter the second operand: ")
+
+
+    @staticmethod
+    def ask_user_float_input(prompt):
+        while True:
+            try:
+                return float(input(prompt))
+            except ValueError:
+                print("Invalid input. Please enter a valid number.")
+
+    def calculate(self):
+    # Perform the operation based on the operator
+        match self.operator:
+            case '+':
+                return self.operand1 + self.operand2
+            case '-':
+                return self.operand1 - self.operand2
+            case '*':
+                return self.operand1 * self.operand2
+            case '/':
+                if self.operand2 == 0:
+                    print("Error: Division by zero is undefined.")
+                    return None
+                return self.operand1 / self.operand2
+            case '**':
+                return self.operand1 ** self.operand2
+            case _:
+                print("Invalid  operator.")
+                return None
+
+    def display_result(self,result):
+        print(f"{self.operand1} {self.operator} {self.operand2} = {result}")
 
 def main():
-    ask_user_input()
-    result = calculate(operand1, operator, operand2)
-    display_result(operand1, operator, operand2, result)
-    ask_user_float_input()
+    calculator=Calculator()
+    calculator.ask_user_input()
+    result=calculator.calculate()
+    calculator.display_result(result)
 
-def ask_user_input():
-    # Get first operand from the user
-    global operand1
-    operand1 =ask_user_float_input("Enter the first operand: ")
-
-    global operator
-    # Get the operator from the user
-    operator = input("Enter an operator (+, -, *, /,**): ")
-
-    global operand2
-    # Get second operand from the user
-    operand2 = ask_user_float_input("Enter the second operand: ")
-
-def ask_user_float_input(x):
-  return float(x)
-
-def calculate(ope1, oper, ope2):
-    # Perform the operation based on the operator
-    match oper:
-        case '+':
-            res = ope1 + ope2
-        case '-':
-            res = ope2 - ope2
-        case '*':
-            res = ope1 * ope2
-        case '/':
-            if ope2 == 0:
-                print("Error: Division by zero is undefined.")
-                return
-            res = ope1 / ope2
-        case '**':
-            puissance =int(input("Enter the puissance"))
-
-            def maFonction(puissance):
-                somme = 1
-                for count in range(int(puissance)):
-                    somme = somme * 2
-                return somme
-
-
-
-                print(somme)
-
-        case _:
-            print("Invalid operator.")
-            return
-    return res
-
-def display_result(op1, ope, ope2, res , puissance):
-    print(str(op1) + " " + ope + " " + str(ope2) + " = " + str(res)+ " = " + str(puissance))
-
-# Call the main function to run the program
+# Run the program
 main()
