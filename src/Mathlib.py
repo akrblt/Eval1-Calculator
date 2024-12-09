@@ -15,3 +15,5 @@ class MathLib:
             case 'add':
                 mathRequest.set_res(operand1 + operand2)
 
+            case 'sub':
+                mathRequest.set_res(operand1 - operand2)
