@@ -17,3 +17,5 @@ class MathLib:
 
             case 'sub':
                 mathRequest.set_res(operand1 - operand2)
+            case 'mul':
+                mathRequest.set_res(operand1 * operand2)
