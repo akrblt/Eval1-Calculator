@@ -19,3 +19,7 @@ class MathLib:
                 mathRequest.set_res(operand1 - operand2)
             case 'mul':
                 mathRequest.set_res(operand1 * operand2)
+            case 'div':
+                if operand2 == 0:
+                    raise ValueError("Division by zero is not allowed.")
+                mathRequest.set_res(operand1 / operand2)
